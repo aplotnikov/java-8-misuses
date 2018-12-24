@@ -1,0 +1,1 @@
+[![CircleCI](https://circleci.com/gh/aplotnikov/java-8-misuses.svg?style=svg)](https://circleci.com/gh/aplotnikov/java-8-misuses)
