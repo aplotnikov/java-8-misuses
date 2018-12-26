@@ -17,4 +17,6 @@ public class Application {
 
     BigDecimal amount;
 
+    Type type;
+
 }
