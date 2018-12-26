@@ -11,7 +11,7 @@ class OptionalOrThrow {
 
     @Ugly
     class ManualCheckForPresenceToThrowException {
-        Loan getLoan(Client client) {
+        Loan getLastLoan(Client client) {
             if (client.findLastLoan().isPresent()) {
                 return client.findLastLoan().get();
             }
@@ -37,7 +37,7 @@ class OptionalOrThrow {
 
     @Good
     class OrElseThrowUsage {
-        Loan getLoan(Client client) {
+        Loan getLastLoan(Client client) {
             return client.findLastLoan()
                          .orElseThrow(() -> new IllegalStateException("Client does not have any loans"));
         }
