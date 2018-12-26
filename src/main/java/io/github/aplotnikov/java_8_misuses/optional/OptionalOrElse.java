@@ -12,14 +12,15 @@ import static java.util.Optional.ofNullable;
 class OptionalOrElse {
 
     class BeforeJava8 {
-        long findLoanId(Client client) {
-            return client != null && client.getLastLoan() != null ? client.getLastLoan().getId() : -1L;
+        long findLastLoanId(Client client) {
+            return client != null && client.getLastLoan() != null
+                    ? client.getLastLoan().getId() : -1L;
         }
     }
 
     @Ugly
     class UsingOptionalIsPresent {
-        long findLoanId(Client client) {
+        long findLastLoanId(Client client) {
             if (ofNullable(client).isPresent()) {
                 if (ofNullable(client.getLastLoan()).isPresent()) {
                     return client.getLastLoan().getId();
@@ -31,7 +32,7 @@ class OptionalOrElse {
 
     @Ugly
     class UsingIfPresentInSameImperativeWayWithDirtyHackOptionalIsPresent {
-        long findLoanId(Client givenClient) {
+        long findLastLoanId(Client givenClient) {
             AtomicLong result = new AtomicLong(-1);
 
             ofNullable(givenClient).ifPresent(
@@ -46,7 +47,7 @@ class OptionalOrElse {
 
     @Good
     class UsingOrElse {
-        long findLoanId(Client client) {
+        long findLastLoanId(Client client) {
             return ofNullable(client)
                     .map(Client::getLastLoan)
                     .map(Loan::getId)
