@@ -23,4 +23,8 @@ public class Client {
     public List<Application> getApplications() {
         return emptyList();
     }
+
+    public boolean hasDebt() {
+        return false;
+    }
 }
