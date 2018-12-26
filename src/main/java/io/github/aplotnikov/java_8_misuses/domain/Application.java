@@ -19,4 +19,7 @@ public class Application {
 
     Type type;
 
+    public boolean isExtension() {
+        return false;
+    }
 }
