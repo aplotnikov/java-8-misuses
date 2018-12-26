@@ -20,11 +20,19 @@ public class Client {
         return Optional.empty();
     }
 
+    public List<Loan> getLoans() {
+        return emptyList();
+    }
+
     public List<Application> getApplications() {
         return emptyList();
     }
 
     public boolean hasDebt() {
         return false;
+    }
+
+    public int getAge() {
+        return 30;
     }
 }
