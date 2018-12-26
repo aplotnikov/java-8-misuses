@@ -1,5 +1,7 @@
 package io.github.aplotnikov.java_8_misuses.domain;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.Value;
 
 import java.util.List;
@@ -8,9 +10,19 @@ import java.util.Optional;
 import static java.util.Collections.emptyList;
 
 @Value
+@EqualsAndHashCode(exclude = {"loans"})
+@ToString(exclude = {"loans"})
 public class Client {
 
     long id;
+
+    List<Loan> loans;
+
+    public Client(long id, List<Loan> loans) {
+        this.id = id;
+        this.loans = loans;
+        loans.forEach(loan -> loan.setClient(Client.this));
+    }
 
     public Loan getLastLoan() {
         return null;
@@ -21,7 +33,7 @@ public class Client {
     }
 
     public List<Loan> getLoans() {
-        return emptyList();
+        return loans;
     }
 
     public List<Application> getApplications() {

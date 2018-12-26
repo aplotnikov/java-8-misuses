@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
+import java.math.BigDecimal;
+
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor
@@ -18,5 +20,9 @@ public class Loan {
     long id;
 
     Application application;
+
+    BigDecimal amount;
+
+    Client client;
 
 }
