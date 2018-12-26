@@ -16,10 +16,16 @@ public class Client {
 
     long id;
 
+    String name;
+
+    String surname;
+
     List<Loan> loans;
 
-    public Client(long id, List<Loan> loans) {
+    public Client(long id, String name, String surname, List<Loan> loans) {
         this.id = id;
+        this.name = name;
+        this.surname = surname;
         this.loans = loans;
         loans.forEach(loan -> loan.setClient(Client.this));
     }
