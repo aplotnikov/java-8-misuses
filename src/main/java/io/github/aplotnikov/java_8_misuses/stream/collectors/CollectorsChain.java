@@ -44,7 +44,10 @@ class CollectorsChain {
                           .flatMap(List::stream)
                           .collect(groupingBy(
                                   Loan::getClient,
-                                  collectingAndThen(maxBy(comparing(Loan::getAmount)), loan -> loan.map(Loan::getAmount).orElse(ZERO)))
+                                  collectingAndThen(
+                                          maxBy(comparing(Loan::getAmount)),
+                                          loan -> loan.map(Loan::getAmount).orElse(ZERO)
+                                  ))
                           );
         }
     }
