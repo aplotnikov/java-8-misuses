@@ -31,7 +31,7 @@ class TrueFunctionalApproach {
     class NaiveStreamsApproach {
         Client findTheOldestClient(List<Client> clients) {
             return clients.stream()
-                          .sorted(comparingInt(Client::getAge))
+                          .sorted(comparingInt(Client::getAge).reversed())
                           .findFirst()
                           .orElse(null);
         }
