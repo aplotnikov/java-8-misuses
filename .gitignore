@@ -29,6 +29,7 @@ gradle-app.setting
 *.iws
 *.ipr
 .idea/
+out/
 
 # OS generated files #
 .DS_Store
