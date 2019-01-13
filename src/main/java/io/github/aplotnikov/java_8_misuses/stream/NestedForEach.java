@@ -11,6 +11,7 @@ import static io.github.aplotnikov.java_8_misuses.utils.Annotations.Good;
 import static io.github.aplotnikov.java_8_misuses.utils.Annotations.Ugly;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toUnmodifiableSet;
 
 class NestedForEach {
 
@@ -46,6 +47,16 @@ class NestedForEach {
                           .filter(Client::hasDebt)
                           .map(Client::getId)
                           .collect(collectingAndThen(toSet(), Collections::unmodifiableSet));
+        }
+    }
+
+    @Good
+    class StreamOperationsChainWithImmutableCollector {
+        Set<Long> retrieveClientIdsWithDebts(List<Client> clients) {
+            return clients.stream()
+                          .filter(Client::hasDebt)
+                          .map(Client::getId)
+                          .collect(toUnmodifiableSet());
         }
     }
 }
