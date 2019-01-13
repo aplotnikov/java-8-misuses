@@ -4,7 +4,7 @@ plugins {
     id("project-report")
     id("build-dashboard")
 
-    id("net.ltgt.apt") version "0.19"
+    id("net.ltgt.apt") version "0.20"
 }
 
 group = "io.github.aplotnikov"
