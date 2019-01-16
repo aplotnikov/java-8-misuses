@@ -36,7 +36,7 @@ class DoNotNeglectDataStructures {
         private final Map<Type, List<Application>> applications = new EnumMap<>(Type.class);
 
         void applyForLoan(Application application) {
-            applications.computeIfAbsent(application.getType(), status -> new ArrayList<>())
+            applications.computeIfAbsent(application.getType(), type -> new ArrayList<>())
                         .add(application);
         }
 
